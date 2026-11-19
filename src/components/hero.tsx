@@ -1,4 +1,5 @@
 import { preload } from "react-dom";
+import { CardArt } from "./card-art";
 import { ButtonLink, Container } from "./ui";
 
 // The hero chart is the LCP element on phones. Its SVG uses blur filters that are slow
@@ -20,18 +21,21 @@ export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="relative">
       <Container className="grid items-center gap-[70px] pt-[34px] lg:grid-cols-[559fr_673fr] lg:gap-12 lg:pt-[100px] xl:gap-20">
-        <div className="relative lg:order-2">
-          {/* The exported card carries its own drop shadow, so it bleeds 24px past the visible frame. */}
-          {/* eslint-disable-next-line @next/next/no-img-element -- static export, responsive srcset is hand-made */}
-          <img
-            {...heroCard}
-            alt="Sales volume analysis chart showing seasonal peaks for summer sales and Black Friday"
-            width={720}
-            height={479}
-            fetchPriority="high"
-            decoding="async"
-            className="-m-[3.5%] h-auto w-[107%] max-w-none"
-          />
+        <div className="lg:order-2">
+          <CardArt
+            canvas={{ width: 720, height: 479 }}
+            panels={[{ x: 23, y: 19, width: 674, height: 433 }]}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element -- static export, responsive srcset is hand-made */}
+            <img
+              {...heroCard}
+              alt="Sales volume analysis chart showing seasonal peaks for summer sales and Black Friday"
+              width={720}
+              height={479}
+              fetchPriority="high"
+              decoding="async"
+            />
+          </CardArt>
         </div>
 
         <div className="lg:order-1">

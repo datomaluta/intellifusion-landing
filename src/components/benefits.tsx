@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CardArt } from "./card-art";
 import { Reveal } from "./motion";
 import { ButtonLink, cn, Container, SectionHeading } from "./ui";
 
@@ -12,6 +13,10 @@ export function Benefits() {
             alt: "Buyer behaviour analysis with a segment donut chart and three buyer personas",
             width: 584,
             height: 453,
+            panels: [
+              { x: 23, y: 19, width: 538, height: 328 },
+              { x: 23, y: 363, width: 538, height: 63 },
+            ],
           }}
           title="Stay Ahead of Your Competition with Predictive Insights"
           text="Machine-learning forecasts show which segments are growing, which customers are about to churn and where your next opportunity is."
@@ -23,6 +28,7 @@ export function Benefits() {
             alt: "Task automation flow chaining buyer research, ad budget and ad script steps",
             width: 584,
             height: 466,
+            panels: [{ x: 23, y: 19, width: 538, height: 420 }],
           }}
           title="Automate Mundane Tasks With Drag & Drop Platform"
           text="Chain research, budgeting and copywriting tasks into a single flow. Each step runs on its own and hands off to the next one."
@@ -34,7 +40,13 @@ export function Benefits() {
 }
 
 type RowProps = {
-  image: { src: string; alt: string; width: number; height: number };
+  image: {
+    src: string;
+    alt: string;
+    width: number;
+    height: number;
+    panels: Array<{ x: number; y: number; width: number; height: number }>;
+  };
   title: string;
   text: string;
   imageFirst?: boolean;
@@ -51,14 +63,10 @@ function Row({ image, title, text, imageFirst, cta }: RowProps) {
           : "lg:grid-cols-[minmax(0,710fr)_minmax(0,538fr)]",
       )}
     >
-      <Reveal className={cn("relative", imageFirst ? "order-2 lg:order-1" : "order-2")}>
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          className="-m-[4.3%] h-auto w-[108.6%] max-w-none"
-        />
+      <Reveal className={imageFirst ? "order-2 lg:order-1" : "order-2"}>
+        <CardArt canvas={{ width: image.width, height: image.height }} panels={image.panels}>
+          <Image src={image.src} alt={image.alt} width={image.width} height={image.height} />
+        </CardArt>
       </Reveal>
       <Reveal className={imageFirst ? "order-1 lg:order-2" : "order-1"}>
         <SectionHeading>{title}</SectionHeading>

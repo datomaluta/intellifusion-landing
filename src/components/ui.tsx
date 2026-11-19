@@ -102,8 +102,13 @@ export function Glow({ className, strength = 0.32 }: { className?: string; stren
   );
 }
 
-/** The thin vertical guide lines that run behind the whole page in the design. */
+/**
+ * The thin vertical guide lines that run behind the whole page in the design.
+ * The inner lines split the content into quarters; the outer two sit in the page gutter
+ * instead of on the content edge, so they frame the text and cards rather than touching them.
+ */
 export function GridLines() {
+  const line = "absolute inset-y-0 w-px bg-white/[0.14]";
   return (
     <div
       aria-hidden="true"
@@ -111,16 +116,11 @@ export function GridLines() {
     >
       <Container className="h-full">
         <div className="relative h-full">
-          {["0%", "25%", "50%", "75%", "100%"].map((left, index) => (
-            <span
-              key={left}
-              className={cn(
-                "absolute inset-y-0 w-px bg-white/[0.14]",
-                index % 2 === 1 && "hidden lg:block",
-              )}
-              style={{ left: index === 4 ? "calc(100% - 1px)" : left }}
-            />
-          ))}
+          <span className={cn(line, "-left-2 sm:-left-4 lg:-left-8")} />
+          <span className={cn(line, "left-1/4 hidden lg:block")} />
+          <span className={cn(line, "left-1/2")} />
+          <span className={cn(line, "left-3/4 hidden lg:block")} />
+          <span className={cn(line, "-right-2 sm:-right-4 lg:-right-8")} />
         </div>
       </Container>
     </div>

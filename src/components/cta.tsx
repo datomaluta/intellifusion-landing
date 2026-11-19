@@ -30,7 +30,10 @@ export function Cta() {
             <Reveal
               key={icon.src}
               delay={0.1 * index}
-              className={cn("w-12 lg:absolute lg:w-[13.34%] lg:max-w-48", icon.position)}
+              className={cn(
+                "w-12 rounded-[4px] backdrop-blur-[15px] lg:absolute lg:w-[13.34%] lg:max-w-48",
+                icon.position,
+              )}
             >
               <Image src={icon.src} alt="" width={192} height={192} className="h-auto w-full" />
             </Reveal>
