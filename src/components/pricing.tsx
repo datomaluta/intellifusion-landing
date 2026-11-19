@@ -75,14 +75,14 @@ export function Pricing() {
                   </span>
                 )}
               </h3>
-              <p className="font-display mt-5 leading-none font-bold lg:mt-[29px]">
-                <span className="text-[30px] lg:text-[40px]">${plan.price[billing]}</span>
-                <span className="text-2xl lg:text-[26px]">/mo</span>
+              <p className="font-display mt-5 leading-none font-bold lg:mt-[21px]">
+                <span className="text-[30px] lg:text-[56px]">${plan.price[billing]}</span>
+                <span className="text-2xl lg:text-[28px]">/mo</span>
                 <span className="sr-only">
                   {billing === "yearly" ? ", billed yearly" : ", billed monthly"}
                 </span>
               </p>
-              <ul className="mt-[42px] mb-[42px] space-y-5 text-sm lg:mt-[53px] lg:mb-[51px] lg:space-y-[15px] lg:text-lg">
+              <ul className="mt-[42px] mb-[42px] space-y-5 text-sm lg:mt-[45px] lg:mb-[51px] lg:space-y-[15px] lg:text-lg">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-[19px] lg:gap-[21px]">
                     <CheckIcon />
