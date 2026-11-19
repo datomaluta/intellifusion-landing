@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 
 export const inter = Inter({
   subsets: ["latin"],
+  // Body copy only uses the regular weight; a single static file is much smaller than the variable font.
+  weight: "400",
   variable: "--font-inter",
   display: "swap",
 });

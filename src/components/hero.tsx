@@ -1,18 +1,35 @@
-import Image from "next/image";
+import { preload } from "react-dom";
 import { ButtonLink, Container } from "./ui";
 
+// The hero chart is the LCP element on phones. Its SVG uses blur filters that are slow
+// to rasterise on low-end CPUs, so it ships as pre-rendered WebP at 1x and 2x instead.
+const heroCard = {
+  src: "/images/sales-volume-card-720.webp",
+  srcSet: "/images/sales-volume-card-720.webp 720w, /images/sales-volume-card-1440.webp 1440w",
+  sizes: "(min-width: 1440px) 720px, (min-width: 1024px) 50vw, 100vw",
+};
+
 export function Hero() {
+  preload(heroCard.src, {
+    as: "image",
+    imageSrcSet: heroCard.srcSet,
+    imageSizes: heroCard.sizes,
+    fetchPriority: "high",
+  });
+
   return (
     <section aria-labelledby="hero-title" className="relative">
       <Container className="grid items-center gap-[70px] pt-[34px] lg:grid-cols-[559fr_673fr] lg:gap-12 lg:pt-[100px] xl:gap-20">
         <div className="relative lg:order-2">
           {/* The exported card carries its own drop shadow, so it bleeds 24px past the visible frame. */}
-          <Image
-            src="/images/sales-volume-card.svg"
+          {/* eslint-disable-next-line @next/next/no-img-element -- static export, responsive srcset is hand-made */}
+          <img
+            {...heroCard}
             alt="Sales volume analysis chart showing seasonal peaks for summer sales and Black Friday"
             width={720}
             height={479}
-            priority
+            fetchPriority="high"
+            decoding="async"
             className="-m-[3.5%] h-auto w-[107%] max-w-none"
           />
         </div>

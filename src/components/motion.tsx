@@ -1,11 +1,13 @@
 "use client";
 
-import { domAnimation, LazyMotion, m, MotionConfig, type Variants } from "motion/react";
+import { LazyMotion, m, MotionConfig, type Variants } from "motion/react";
 import type { ReactNode } from "react";
+
+const loadFeatures = () => import("./motion-features").then((module) => module.default);
 
 export function MotionProvider({ children }: { children: ReactNode }) {
   return (
-    <LazyMotion features={domAnimation} strict>
+    <LazyMotion features={loadFeatures} strict>
       {/* Respect the OS "reduce motion" setting: transforms are skipped, fades stay. */}
       <MotionConfig reducedMotion="user">{children}</MotionConfig>
     </LazyMotion>

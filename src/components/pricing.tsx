@@ -70,7 +70,7 @@ export function Pricing() {
               <h3 className="font-display flex items-center gap-4 text-[17px] leading-none font-semibold lg:text-[25px]">
                 {plan.name}
                 {plan.popular && (
-                  <span className="from-brand to-brand-deep rounded-full bg-linear-to-r px-3 py-1.5 font-sans text-[10px] leading-none font-medium lg:px-[17px] lg:py-[7px] lg:text-xs">
+                  <span className="from-brand to-brand-deep rounded-full bg-linear-to-r px-3 py-1.5 font-sans text-[10px] leading-none lg:px-[17px] lg:py-[7px] lg:text-xs">
                     Popular
                   </span>
                 )}
@@ -138,7 +138,7 @@ function BillingToggle({
           />
           {option.label}
           {option.value === "yearly" && (
-            <span className="from-brand to-brand-deep rounded-full bg-linear-to-r px-2.5 py-1 text-[10px] leading-none font-medium lg:px-[11px] lg:py-1.5 lg:text-xs">
+            <span className="from-brand to-brand-deep rounded-full bg-linear-to-r px-2.5 py-1 font-sans text-[10px] leading-none lg:px-[11px] lg:py-1.5 lg:text-xs">
               -20%
             </span>
           )}
