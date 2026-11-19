@@ -3,10 +3,11 @@ import { CardArt } from "./card-art";
 import { ButtonLink, Container } from "./ui";
 
 // The hero chart is the LCP element on phones. Its SVG uses blur filters that are slow
-// to rasterise on low-end CPUs, so it ships as pre-rendered WebP at 1x and 2x instead.
+// to rasterise on low-end CPUs, so it ships as pre-rendered WebP in three widths instead.
 const heroCard = {
   src: "/images/sales-volume-card-720.webp",
-  srcSet: "/images/sales-volume-card-720.webp 720w, /images/sales-volume-card-1440.webp 1440w",
+  srcSet:
+    "/images/sales-volume-card-720.webp 720w, /images/sales-volume-card-1080.webp 1080w, /images/sales-volume-card-1440.webp 1440w",
   sizes: "(min-width: 1440px) 720px, (min-width: 1024px) 50vw, 100vw",
 };
 
