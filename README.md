@@ -85,7 +85,7 @@ src
 
 Based on [SaaS Website Landing Page](https://www.figma.com/community/file/1437972491862974036/saas-website-landing-page) by **Zanubio**, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Changes from the original:
 
-- Placeholder copy, testimonials and pricing features were replaced with product copy
+- Placeholder copy, "logoipsum" customer logos, testimonials and pricing features were replaced with product content (the customer brands are fictional)
 - The purple used for small text was lightened slightly (`#7d5ba6` to `#9677c2`) to meet WCAG AA contrast
 - The newsletter form is also shown on mobile, and the testimonials row became an auto-scrolling marquee on desktop
 

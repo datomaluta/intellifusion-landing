@@ -9,7 +9,7 @@ const testimonials = [
   },
   {
     name: "David Okafor",
-    role: "VP of Sales, Brightline",
+    role: "VP of Sales, Kestrel",
     quote:
       "The churn predictions alone paid for the subscription in the first month. For the first time, the whole team trusts the numbers.",
   },
