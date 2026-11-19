@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Fully static site: `next build` writes plain HTML/CSS/JS to `out/`.
+  output: "export",
+  devIndicators: false,
+  images: {
+    // All artwork is SVG, so there is nothing for the image optimizer to do.
+    unoptimized: true,
+  },
   turbopack: {
     rules: {
       "*.css": {
