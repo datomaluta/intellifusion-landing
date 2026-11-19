@@ -16,12 +16,14 @@ The design and the finished page side by side. The headings and layout follow th
 
 ## Lighthouse
 
+Measured with [PageSpeed Insights](https://pagespeed.web.dev/analysis/https-intellifusion-landing-vercel-app/ryfcnxbiq6) on the live site (Lighthouse 13, November 2026):
+
 |         | Performance | Accessibility | Best Practices | SEO |
 | ------- | :---------: | :-----------: | :------------: | :-: |
+| Mobile  |     98      |      100      |      100       | 100 |
 | Desktop |     100     |      100      |      100       | 100 |
-| Mobile  |      —      |      100      |      100       | 100 |
 
-Measured with Lighthouse 12 against the production build.
+Mobile: FCP 0.9 s, LCP 2.4 s, TBT 20 ms, CLS 0 (emulated Moto G Power on slow 4G).
 
 ## Features
 
