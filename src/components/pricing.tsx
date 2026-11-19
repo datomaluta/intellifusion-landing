@@ -55,7 +55,7 @@ export function Pricing() {
           <BillingToggle value={billing} onChange={setBilling} />
         </Reveal>
 
-        <ul className="mt-8 grid gap-4 md:grid-cols-3 md:gap-6 lg:mt-[94px] xl:gap-8">
+        <ul className="mt-8 grid gap-4 md:mx-auto md:max-w-xl lg:mt-[94px] lg:max-w-none lg:grid-cols-3 lg:gap-6 xl:gap-8">
           {plans.map((plan, index) => (
             <Reveal
               as="li"
@@ -64,7 +64,7 @@ export function Pricing() {
               className={cn(
                 cardClasses,
                 "flex flex-col px-[32px] pt-[30px] pb-[31px] lg:p-8",
-                plan.popular && "border-brand/80 md:-my-7",
+                plan.popular && "border-brand/80 lg:-my-7",
               )}
             >
               <h3 className="font-display flex items-center gap-4 text-[17px] leading-none font-semibold lg:text-[25px]">

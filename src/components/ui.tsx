@@ -34,7 +34,7 @@ type ButtonProps = ComponentProps<"a"> & {
 };
 
 const buttonBase =
-  "group inline-flex items-center justify-center gap-2 rounded-[2px] border font-display font-bold transition-[filter,background-color,color,box-shadow] duration-200";
+  "group inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-[2px] border font-display font-bold transition-[filter,background-color,color,box-shadow] duration-200";
 
 const buttonVariants = {
   primary:

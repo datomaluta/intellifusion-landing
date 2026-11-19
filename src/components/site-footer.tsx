@@ -19,7 +19,7 @@ export function SiteFooter() {
           <div>
             <Logo className="gap-4 [&_span]:text-[22.5px]" markClassName="size-8" />
             <nav aria-label="Footer" className="mt-[30px] lg:mt-6">
-              <ul className="font-display flex flex-col gap-4 text-base lg:flex-row lg:gap-8 lg:text-[17px]">
+              <ul className="font-display flex flex-col gap-4 text-base whitespace-nowrap lg:flex-row lg:gap-6 lg:text-[17px] xl:gap-8">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <a href={link.href} className="hover:text-brand-text transition-colors">

@@ -35,7 +35,10 @@ export function Features() {
               as="li"
               key={feature.title}
               delay={index * 0.1}
-              className={cn(cardClasses, "p-4 lg:px-[46px] lg:pt-8 lg:pb-[33px] lg:text-center")}
+              className={cn(
+                cardClasses,
+                "p-4 lg:px-6 lg:pt-8 lg:pb-[33px] lg:text-center xl:px-[46px]",
+              )}
             >
               <Image
                 src={feature.icon}
@@ -44,7 +47,7 @@ export function Features() {
                 height={64}
                 className="size-12 lg:mx-auto lg:size-16"
               />
-              <h3 className="font-display mt-4 text-lg leading-tight font-bold lg:mt-[35px] lg:text-[25px] lg:leading-none">
+              <h3 className="font-display mt-4 text-lg leading-tight font-bold lg:mt-[35px] lg:text-[22px] lg:leading-none xl:text-[25px]">
                 {feature.title}
               </h3>
               <p className="text-muted mt-1.5 text-sm leading-[1.36] lg:mt-2.5 lg:leading-[1.55]">

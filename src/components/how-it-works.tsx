@@ -42,7 +42,7 @@ export function HowItWorks() {
               >
                 {index + 1}
               </span>
-              <h3 className="font-display mt-4 text-lg leading-tight font-bold lg:mt-[35px] lg:text-[25px] lg:leading-none">
+              <h3 className="font-display mt-4 text-lg leading-tight font-bold lg:mt-[35px] lg:text-[22px] lg:leading-none xl:text-[25px]">
                 <span className="sr-only">Step {index + 1}: </span>
                 {step.title}
               </h3>

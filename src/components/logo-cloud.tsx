@@ -49,7 +49,12 @@ export function LogoCloud() {
       <Container className="pt-24">
         <ul className="font-display text-snow/50 flex flex-wrap items-center justify-center gap-x-12 gap-y-8 xl:justify-between xl:gap-0">
           {logos.map((Logo, index) => (
-            <li key={index} className={index > 3 ? "hidden lg:block" : undefined}>
+            <li
+              key={index}
+              className={
+                index === 3 ? "hidden lg:block" : index > 3 ? "hidden xl:block" : undefined
+              }
+            >
               <Logo />
             </li>
           ))}
