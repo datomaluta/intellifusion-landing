@@ -10,7 +10,7 @@ export const inter = Inter({
 });
 
 // Metropolis is not on Google Fonts, so it is self-hosted from the
-// @fontsource/metropolis package (latin subset, only the weights in use).
+// @fontsource/metropolis package (public domain; latin subset, only the weights in use).
 export const metropolis = localFont({
   src: [
     { path: "../fonts/metropolis-latin-400-normal.woff2", weight: "400" },

@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IntelliFusion — SaaS Landing Page
 
-## Getting Started
+A responsive marketing landing page for a fictional AI analytics product, built with **Next.js 16** from a free Figma Community design. The goal was a close match to the Figma frames at desktop (1440px) and mobile (393px), with sensible tablet layouts in between, while keeping the page fast and accessible.
 
-First, run the development server:
+**Live demo: [intellifusion-landing.vercel.app](https://intellifusion-landing.vercel.app)**
+
+![IntelliFusion landing page](docs/screenshot-desktop.jpg)
+
+## Figma vs. build
+
+The design and the finished page side by side. The headings and layout follow the design. The Lorem Ipsum copy was replaced with realistic product copy, so line breaks in paragraphs differ slightly.
+
+| Desktop (1440px)                                | Mobile (393px)                                | Mobile menu                                             |
+| ----------------------------------------------- | --------------------------------------------- | ------------------------------------------------------- |
+| ![Desktop comparison](docs/compare-desktop.jpg) | ![Mobile comparison](docs/compare-mobile.jpg) | ![Mobile menu comparison](docs/compare-mobile-menu.jpg) |
+
+## Lighthouse
+
+|         | Performance | Accessibility | Best Practices | SEO |
+| ------- | :---------: | :-----------: | :------------: | :-: |
+| Desktop |     100     |      100      |      100       | 100 |
+| Mobile  |      —      |      100      |      100       | 100 |
+
+Measured with Lighthouse 12 against the production build.
+
+## Features
+
+- **Matches the design:** spacing, font sizes and colours were measured from the 2x Figma exports and checked with side-by-side screenshots at 1440px and 393px
+- **Responsive** from 360px up, with dedicated layouts for tablet (768px) and small laptops (1024px)
+- **Accessible navigation:** sticky header, a mobile menu with `aria-expanded`, focus moved into the menu, Escape to close, scroll lock, and a skip link
+- **Pricing toggle:** monthly and yearly billing built on native radio inputs, so it works with the keyboard and screen readers
+- **Newsletter form** with client-side validation and loading, error and success states. There is no backend, so the request is simulated; any address on `example.com` returns an error, to show the failure state
+- **Subtle motion** with Motion (Framer Motion): sections fade in on scroll, and an endless testimonials marquee pauses on hover. All of it respects `prefers-reduced-motion`
+- **SEO:** metadata, Open Graph and Twitter cards with a 1200×630 image, canonical URL, `robots.txt`, `sitemap.xml`, SVG favicon and Apple touch icon
+- **Performance:** fully static export, self-hosted fonts through `next/font`, the hero image preloaded as responsive WebP, and the animation engine loaded lazily after first paint
+
+## Tech stack
+
+- Next.js 16 (App Router, static export) and React 19
+- TypeScript in strict mode
+- Tailwind CSS 4 with design tokens in `@theme`
+- Motion (`motion/react`) with `LazyMotion`
+- `next/font` for Inter (Google Fonts) and Metropolis (self-hosted)
+- ESLint and Prettier (with the Tailwind class sorting plugin)
+
+## Getting started
+
+Requires Node.js 20.9 or newer.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # static site in out/
+npm run lint
+npm run format
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+src
+├── app/
+│   ├── layout.tsx        # fonts, metadata, Open Graph
+│   ├── page.tsx          # page composition, background glows
+│   ├── fonts.ts          # Inter + self-hosted Metropolis
+│   ├── globals.css       # Tailwind theme tokens
+│   ├── icon.svg, apple-icon.png, robots.ts, sitemap.ts
+├── components/
+│   ├── site-header.tsx   # sticky header + mobile menu
+│   ├── hero.tsx, logo-cloud.tsx, features.tsx, benefits.tsx,
+│   ├── how-it-works.tsx, pricing.tsx, testimonials.tsx, cta.tsx
+│   ├── site-footer.tsx, newsletter-form.tsx
+│   ├── motion.tsx        # LazyMotion provider + <Reveal>
+│   └── ui.tsx            # Container, buttons, cards, grid lines
+├── fonts/                # Metropolis woff2 files
+└── lib/site.ts           # site config and navigation
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Design credit
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Based on [SaaS Website Landing Page](https://www.figma.com/community/file/1437972491862974036/saas-website-landing-page) by **Zanubio**, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Changes from the original:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Placeholder copy, testimonials and pricing features were replaced with product copy
+- The purple used for small text was lightened slightly (`#7d5ba6` to `#9677c2`) to meet WCAG AA contrast
+- The newsletter form is also shown on mobile, and the testimonials row became an auto-scrolling marquee on desktop
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Fonts: Metropolis by Chris Simpson (Unlicense, public domain) and Inter by Rasmus Andersson (SIL Open Font License).
